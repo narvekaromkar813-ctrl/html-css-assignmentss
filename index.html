@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Charm - Premium Coffee Experience</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">
+                <i class="fas fa-coffee me-2"></i>Coffee Charm
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light ms-2" href="#order">Order Online</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-8 mx-auto text-center text-white hero-content">
+                    <h1 class="display-3 fw-bold mb-4" data-aos="fade-up">
+                        Experience the Perfect Cup
+                    </h1>
+                    <p class="lead mb-5" data-aos="fade-up" data-aos-delay="100">
+                        Discover premium coffee crafted with passion, served in a warm and inviting atmosphere
+                    </p>
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <a href="#menu" class="btn btn-primary btn-lg me-3">Explore Menu</a>
+                        <a href="#about" class="btn btn-outline-light btn-lg">Our Story</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#about" class="text-white">
+                <i class="fas fa-chevron-down bounce"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-4.0.3" 
+                         alt="Coffee Shop Interior" class="img-fluid rounded-3 shadow">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h2 class="display-5 fw-bold mb-4 text-primary">About Coffee Charm</h2>
+                    <p class="lead mb-4">
+                        Founded in 2018, Coffee Charm has been serving the community with passion and dedication. 
+                        We believe that great coffee is more than just a drink – it's an experience.
+                    </p>
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <div class="feature-box">
+                                <i class="fas fa-coffee fa-2x text-primary mb-2"></i>
+                                <h5>Premium Beans</h5>
+                                <p>100% Arabica from sustainable farms</p>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <div class="feature-box">
+                                <i class="fas fa-heart fa-2x text-primary mb-2"></i>
+                                <h5>Crafted with Love</h5>
+                                <p>Every cup made with care</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="feature-box">
+                                <i class="fas fa-users fa-2x text-primary mb-2"></i>
+                                <h5>Community Hub</h5>
+                                <p>Where friends meet and memories are made</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="feature-box">
+                                <i class="fas fa-leaf fa-2x text-primary mb-2"></i>
+                                <h5>Eco-Friendly</h5>
+                                <p>Sustainable practices every day</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialties Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-5 fw-bold text-primary">Our Specialties</h2>
+                <p class="lead">What makes our coffee special</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="specialty-card text-center p-4">
+                        <div class="specialty-icon mb-3">
+                            <i class="fas fa-fire fa-3x text-warning"></i>
+                        </div>
+                        <h4>Fresh Roasted</h4>
+                        <p>Beans roasted daily for maximum freshness and flavor</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="specialty-card text-center p-4">
+                        <div class="specialty-icon mb-3">
+                            <i class="fas fa-blender fa-3x text-info"></i>
+                        </div>
+                        <h4>Artisanal Blends</h4>
+                        <p>Unique house blends crafted by our master roasters</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="specialty-card text-center p-4">
+                        <div class="specialty-icon mb-3">
+                            <i class="fas fa-utensils fa-3x text-success"></i>
+                        </div>
+                        <h4>Fresh Pastries</h4>
+                        <p>Homemade pastries baked fresh every morning</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-5 fw-bold text-primary">Our Menu</h2>
+                <p class="lead">Discover our carefully crafted beverages</p>
+            </div>
+            
+            <!-- Menu Tabs -->
+            <ul class="nav nav-pills justify-content-center mb-5" id="menuTabs" role="tablist" data-aos="fade-up" data-aos-delay="100">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="coffee-tab" data-bs-toggle="pill" data-bs-target="#coffee" type="button">
+                        <i class="fas fa-coffee me-2"></i>Coffee
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tea-tab" data-bs-toggle="pill" data-bs-target="#tea" type="button">
+                        <i class="fas fa-leaf me-2"></i>Tea
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pastries-tab" data-bs-toggle="pill" data-bs-target="#pastries" type="button">
+                        <i class="fas fa-cookie me-2"></i>Pastries
+                    </button>
+                </li>
+            </ul>
+            
+            <!-- Menu Content -->
+            <div class="tab-content" id="menuTabContent">
+                <div class="tab-pane fade show active" id="coffee" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="menu-item text-center p-4 bg-white rounded-3 shadow-sm">
+                                <div class="menu-item-image mb-3">
+                                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3" alt="Latte" class="img-fluid rounded-circle">
+                                </div>
+                                <h5 class="fw-bold">Caffe Latte</h5>
+                                <p class="text-muted">Smooth espresso with steamed milk</p>
+                                <span class="price h5 text-primary">450</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="menu-item text-center p-4 bg-white rounded-3 shadow-sm">
+                                <div class="menu-item-image mb-3">
+                                    <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-4.0.3" alt="Cappuccino" class="img-fluid rounded-circle">
+                                </div>
+                                <h5 class="fw-bold">Cappuccino</h5>
+                                <p class="text-muted">Espresso with foamed milk</p>
+                                <span class="price h5 text-primary">425</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="menu-item text-center p-4 bg-white rounded-3 shadow-sm">
+                                <div class="menu-item-image mb-3">
+                                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3" alt="Americano" class="img-fluid rounded-circle">
+                                </div>
+                                <h5 class="fw-bold">Americano</h5>
+                                <p class="text-muted">Espresso with hot water</p>
+                                <span class="price h5 text-primary">350</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane fade" id="tea" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="menu-item text-center p-4 bg-white rounded-3 shadow-sm">
+                                <div class="menu-item-image mb-3">
+                                    <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?ixlib=rb-4.0.3" alt="Green Tea" class="img-fluid rounded-circle">
+                                </div>
+                                <h5 class="fw-bold">Green Tea</h5>
+                                <p class="text-muted">Refreshing and antioxidant-rich</p>
+                                <span class="price h5 text-primary">300</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="menu-item text-center p-4 bg-white rounded-3 shadow-sm">
+                                <div class="menu-item-image mb-3">
+                                    <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?ixlib=rb-4.0.3" alt="Black Tea" class="img-fluid rounded-circle">
+                                </div>
+                                <h5 class="fw-bold">Black Tea</h5>
+                                <p class="text-muted">Classic and robust flavor</p>
+                                <span class="price h5 text-primary">275</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="menu-item text-center p-4 bg-white rounded-3 shadow-sm">
+                                <div class="menu-item-image mb-3">
+                                    <img src="download.jpeg" alt="Herbal Tea" class="img-fluid rounded-circle">
+                                </div>
+                                <h5 class="fw-bold">Herbal Tea</h5>
+                                <p class="text-muted">Calming and caffeine-free</p>
+                                <span class="price h5 text-primary">325</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane fade" id="pastries" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="menu-item text-center p-4 bg-white rounded-3 shadow-sm">
+                                <div class="menu-item-image mb-3">
+                                    <img src="images.jpeg" alt="Croissant" class="img-fluid rounded-circle">
+                                </div>
+                                <h5 class="fw-bold">Croissant</h5>
+                                <p class="text-muted">Buttery and flaky French pastry</p>
+                                <span class="price h5 text-primary">350</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="menu-item text-center p-4 bg-white rounded-3 shadow-sm">
+                                <div class="menu-item-image mb-3">
+                                    <img src="https://images.unsplash.com/photo-1607958996333-41aef7caefaa?ixlib=rb-4.0.3" alt="Muffin" class="img-fluid rounded-circle">
+                                </div>
+                                <h5 class="fw-bold">Muffin</h5>
+                                <p class="text-muted">Freshly baked daily</p>
+                                <span class="price h5 text-primary">275</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="menu-item text-center p-4 bg-white rounded-3 shadow-sm">
+                                <div class="menu-item-image mb-3">
+                                    <img src="easy-bagel-recipe-featured.jpg" alt="Bagel" class="img-fluid rounded-circle">
+                                </div>
+                                <h5 class="fw-bold">Bagel</h5>
+                                <p class="text-muted">Perfect with cream cheese</p>
+                                <span class="price h5 text-primary">250</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+                    <h2 class="display-5 fw-bold mb-4">Visit Us Today</h2>
+                    <p class="lead mb-5">Experience the charm of great coffee in a welcoming atmosphere</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-item text-center">
+                        <i class="fas fa-map-marker-alt fa-2x mb-3 text-primary"></i>
+                        <h5>Location</h5>
+                        <p>Shop 2- Lodha <br>Worli</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-item text-center">
+                        <i class="fas fa-clock fa-2x mb-3 text-primary"></i>
+                        <h5>Hours</h5>
+                        <p>Mon-Fri: 6am - 8pm<br>Sat-Sun: 7am - 9pm</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-item text-center">
+                        <i class="fas fa-phone fa-2x mb-3 text-primary"></i>
+                        <h5>Contact</h5>
+                        <p>9324645273<br>hello@coffeecharm.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2024 Coffee Charm. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-yelp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

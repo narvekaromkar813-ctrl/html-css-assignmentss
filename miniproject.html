@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DVD Legend Arcade</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Press Start 2P', cursive;
+}
+
+body{
+background:black;
+color:#00ffff;
+overflow:hidden;
+}
+
+/* CRT */
+.scanlines{
+position:fixed;
+width:100%;
+height:100%;
+pointer-events:none;
+background:repeating-linear-gradient(
+to bottom,
+rgba(255,255,255,0.05) 0px,
+rgba(255,255,255,0.05) 2px,
+transparent 2px,
+transparent 4px
+);
+z-index:999;
+}
+
+/* INTRO */
+#intro{
+position:fixed;
+width:100%;
+height:100vh;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+.scene{position:absolute;opacity:0;transition:1.5s;}
+.scene.active{opacity:1;}
+.bigTitle{text-shadow:0 0 20px #ff00ff,0 0 40px #00ffff;}
+
+/* MAIN BACKGROUND */
+#mainSite{
+display:none;
+height:100vh;
+overflow:auto;
+background:radial-gradient(circle at center,#1a0033,#000000);
+animation:bgMove 10s linear infinite;
+}
+
+@keyframes bgMove{
+0%{background-position:0 0;}
+100%{background-position:0 100px;}
+}
+
+/* GRID FLOOR */
+#mainSite::before{
+content:"";
+position:fixed;
+bottom:0;
+width:100%;
+height:40%;
+background:linear-gradient(#00ffff 1px,transparent 1px),
+linear-gradient(90deg,#00ffff 1px,transparent 1px);
+background-size:40px 40px;
+transform:perspective(500px) rotateX(60deg);
+opacity:0.3;
+}
+
+/* NAV */
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px;
+background:black;
+border-bottom:3px solid #ff00ff;
+}
+
+nav button{
+background:black;
+color:#00ffff;
+border:2px solid #00ffff;
+padding:10px;
+cursor:pointer;
+}
+
+/* TABS */
+.tab{display:none;padding:40px;text-align:center;}
+.activeTab{display:block;}
+
+.small{margin-top:20px;font-size:12px;}
+.dvdInfo{margin-top:30px;font-size:12px;line-height:2;}
+
+#startExperience{
+margin-top:40px;
+padding:15px 40px;
+border:3px solid #00ffff;
+background:black;
+color:#00ffff;
+cursor:pointer;
+}
+
+/* GAME */
+#dvdContainer{
+position:relative;
+width:100%;
+height:60vh;
+background:black;
+overflow:hidden;
+border:2px solid #00ffff;
+margin-top:20px;
+}
+
+#dvdLogo{
+position:absolute;
+width:120px;
+height:60px;
+background:#ff00ff;
+color:black;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+#explosion{
+position:absolute;
+width:150px;
+height:150px;
+border-radius:50%;
+background:radial-gradient(circle,#ffff00,#ff0000,transparent);
+opacity:0;
+transform:scale(0.5);
+transition:0.4s;
+}
+
+.scoreBoard{margin-top:20px;color:#00ff00;}
+.leaderboard{margin-top:20px;color:#ffff00;}
+</style>
+</head>
+
+<body>
+
+<div class="scanlines"></div>
+
+<div id="intro">
+    <div class="scene active"><h1>1989...</h1></div>
+    <div class="scene"><h1>A Screensaver Changed Everything</h1></div>
+    <div class="scene"><h1>One Logo. Infinite Bounces.</h1></div>
+    <div class="scene"><h1 class="bigTitle">DVD LEGEND ARCADE</h1></div>
+</div>
+
+<div id="mainSite">
+
+<nav>
+    <div class="logo">DVD ARCADE</div>
+    <div>
+        <button data-tab="home">HOME</button>
+        <button data-tab="screensaver">SCREEN SAVER</button>
+    </div>
+</nav>
+
+<section id="home" class="tab activeTab">
+    <h2>WELCOME PLAYER</h2>
+    <p class="small">
+        The DVD logo started as a simple burn-in prevention animation.
+        It became a global meme when millions waited for the perfect corner hit.
+    </p>
+
+    <div class="dvdInfo">
+        <p>> Click anywhere to teleport the logo.</p>
+        <p>> Listen for the legendary FAAAA sound.</p>
+        <p>> Wait for the perfect CORNER HIT.</p>
+        <p>> Increase level and speed.</p>
+    </div>
+
+    <button id="startExperience">START EXPERIENCE</button>
+</section>
+
+<section id="screensaver" class="tab">
+
+    <div class="game-controls">
+        <button id="startGame">START GAME MODE</button>
+        <div class="scoreBoard">
+            SCORE: <span id="score">0</span> |
+            CORNERS: <span id="corners">0</span> |
+            LEVEL: <span id="level">1</span>
+        </div>
+    </div>
+
+    <div id="dvdContainer">
+        <div id="dvdLogo">DVD</div>
+        <div id="explosion"></div>
+    </div>
+
+    <div class="leaderboard">
+        <h3>LEADERBOARD</h3>
+        <ol id="leaderboardList"></ol>
+    </div>
+
+</section>
+</div>
+
+<audio id="bgMusic" loop>
+<source src="BGforgame.mp3">
+</audio>
+
+<audio id="memeSound">
+<source src="faaah.mp3">
+</audio>
+
+<script>
+const scenes=document.querySelectorAll(".scene");
+let index=0;
+
+function nextScene(){
+scenes[index].classList.remove("active");
+index++;
+if(index<scenes.length){
+scenes[index].classList.add("active");
+}else{
+document.getElementById("intro").style.display="none";
+document.getElementById("mainSite").style.display="block";
+
+document.body.addEventListener("click",()=>{
+document.getElementById("bgMusic").play();
+},{once:true});
+}
+}
+setInterval(nextScene,3000);
+
+/* TABS */
+document.querySelectorAll("nav button").forEach(btn=>{
+btn.addEventListener("click",()=>{
+document.querySelectorAll(".tab").forEach(t=>t.classList.remove("activeTab"));
+document.getElementById(btn.dataset.tab).classList.add("activeTab");
+});
+});
+
+document.getElementById("startExperience").onclick=()=>{
+document.querySelectorAll(".tab").forEach(t=>t.classList.remove("activeTab"));
+document.getElementById("screensaver").classList.add("activeTab");
+};
+
+/* GAME */
+const dvd=document.getElementById("dvdLogo");
+const container=document.getElementById("dvdContainer");
+const explosion=document.getElementById("explosion");
+
+let x=100,y=100,dx=3,dy=3;
+let score=0,corners=0,level=1;
+let colors=["#ff00ff","#00ffff","#ffff00","#ff0000","#00ff00","#ffffff"];
+
+function animate(){
+const rect=container.getBoundingClientRect();
+x+=dx;y+=dy;
+
+let hitX=false,hitY=false;
+
+if(x+dvd.offsetWidth>rect.width||x<0){dx=-dx;hitX=true;}
+if(y+dvd.offsetHeight>rect.height||y<0){dy=-dy;hitY=true;}
+
+if(hitX||hitY){
+dvd.style.background=colors[Math.floor(Math.random()*colors.length)];
+score+=5;
+scoreDisplay();
+}
+
+if(hitX&&hitY){
+corners++;
+score+=50;
+document.getElementById("corners").textContent=corners;
+triggerExplosion(x,y);
+}
+
+dvd.style.left=x+"px";
+dvd.style.top=y+"px";
+requestAnimationFrame(animate);
+}
+animate();
+
+function scoreDisplay(){
+document.getElementById("score").textContent=score;
+}
+
+/* TELEPORT */
+container.onclick=(e)=>{
+const rect=container.getBoundingClientRect();
+x=e.clientX-rect.left-dvd.offsetWidth/2;
+y=e.clientY-rect.top-dvd.offsetHeight/2;
+document.getElementById("memeSound").play();
+};
+
+/* EXPLOSION */
+function triggerExplosion(px,py){
+explosion.style.left=px+"px";
+explosion.style.top=py+"px";
+explosion.style.opacity=1;
+explosion.style.transform="scale(1.5)";
+setTimeout(()=>{
+explosion.style.opacity=0;
+explosion.style.transform="scale(0.5)";
+},400);
+}
+
+/* LEVEL SYSTEM */
+document.getElementById("startGame").onclick=()=>{
+setInterval(()=>{
+level++;
+dx+=(dx>0?1:-1);
+dy+=(dy>0?1:-1);
+document.getElementById("level").textContent=level;
+},5000);
+};
+
+/* LEADERBOARD */
+function saveScore(){
+let scores=JSON.parse(localStorage.getItem("dvdScores"))||[];
+scores.push(score);
+scores.sort((a,b)=>b-a);
+scores=scores.slice(0,5);
+localStorage.setItem("dvdScores",JSON.stringify(scores));
+displayLeaderboard();
+}
+
+function displayLeaderboard(){
+let scores=JSON.parse(localStorage.getItem("dvdScores"))||[];
+let list=document.getElementById("leaderboardList");
+list.innerHTML="";
+scores.forEach(s=>{
+let li=document.createElement("li");
+li.textContent=s;
+list.appendChild(li);
+});
+}
+displayLeaderboard();
+</script>
+
+</body>
+</html>

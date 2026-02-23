@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenNest Nursery</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #f5f7f1;
+  --paper: #ffffff;
+  --text: #243126;
+  --muted: #5c6e5f;
+  --accent: #2f7d32;
+  --accent-dark: #245f27;
+  --line: #dce5d9;
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.hero {
+  min-height: 70vh;
+  background:
+    linear-gradient(to bottom, rgba(10, 20, 12, 0.38), rgba(10, 20, 12, 0.38)),
+    url("https://images.unsplash.com/photo-1466781783364-36c955e42a7f?auto=format&fit=crop&w=1600&q=80")
+    center/cover no-repeat;
+  color: #f8fff7;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.logo {
+  margin: 0;
+  font-family: "DM Serif Display", serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.4px;
+}
+
+.hero-content {
+  padding: 6rem 0 5rem;
+  max-width: 640px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.hero-content h2 {
+  margin: 0.7rem 0;
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.08;
+}
+
+.subtitle {
+  margin: 0 0 1.4rem;
+  color: #e6f0e4;
+  max-width: 54ch;
+}
+
+.btn {
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.section-head h3,
+.contact-card h3 {
+  margin: 0;
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+}
+
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  background: #e5f3e4;
+  border-color: #c0dfbf;
+  color: #1f5a23;
+}
+
+.plant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.plant-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.plant-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 26px rgba(18, 33, 19, 0.09);
+}
+
+.plant-card img {
+  height: 210px;
+  object-fit: cover;
+}
+
+.plant-info {
+  padding: 0.9rem;
+}
+
+.plant-info h4 {
+  margin: 0 0 0.2rem;
+}
+
+.plant-info p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.contact {
+  padding-top: 1rem;
+}
+
+.contact-card {
+  text-align: center;
+  background: linear-gradient(120deg, #f2f8f0, #ffffff);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.contact-card p {
+  margin: 0.45rem 0;
+  color: var(--muted);
+}
+
+.hello-msg {
+  min-height: 1.2em;
+  font-weight: 600;
+  color: #1f5a23;
+}
+
+@media (max-width: 640px) {
+  .hero-content {
+    padding: 4.5rem 0 4rem;
+  }
+
+  .plant-card img {
+    height: 190px;
+  }
+}
+</style>
+
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <nav class="nav container">
+      <h1 class="logo">GreenNest</h1>
+      <a href="#contact" class="btn btn-outline">Visit Us</a>
+    </nav>
+
+    <div class="hero-content container">
+      <p class="eyebrow">Fresh Plants, Happy Spaces</p>
+      <h2>Bring Home Nature's Calm</h2>
+      <p class="subtitle">
+        A cozy local nursery with healthy indoor plants, flowering favorites,
+        and easy-care greens for every home.
+      </p>
+      <a href="#plants" class="btn">Explore Plants</a>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <section id="plants" class="section container">
+      <div class="section-head">
+        <h3>Popular Plants</h3>
+
+        <div class="filters" aria-label="Plant categories">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="indoor">Indoor</button>
+          <button class="filter-btn" data-filter="flowering">Flowering</button>
+          <button class="filter-btn" data-filter="easy">Easy Care</button>
+        </div>
+      </div>
+
+      <div class="plant-grid">
+        <article class="plant-card" data-category="indoor easy">
+          <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=900&q=80">
+          <div class="plant-info">
+            <h4>Snake Plant</h4>
+            <p>Strong, clean look and low maintenance.</p>
+          </div>
+        </article>
+
+        <article class="plant-card" data-category="flowering">
+          <img src="https://images.unsplash.com/photo-1463320898484-cdee8141c787?auto=format&fit=crop&w=900&q=80">
+          <div class="plant-info">
+            <h4>Anthurium</h4>
+            <p>Bright blooms that add color to corners.</p>
+          </div>
+        </article>
+
+        <article class="plant-card" data-category="indoor easy">
+          <img src="https://images.unsplash.com/photo-1463936575829-25148e1db1b8?auto=format&fit=crop&w=900&q=80">
+          <div class="plant-info">
+            <h4>Pothos</h4>
+            <p>Fast-growing vines for shelves and windows.</p>
+          </div>
+        </article>
+
+        <article class="plant-card" data-category="flowering easy">
+          <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=80">
+          <div class="plant-info">
+            <h4>Peace Lily</h4>
+            <p>Elegant leaves and soft white flowers.</p>
+          </div>
+        </article>
+
+        <article class="plant-card" data-category="indoor">
+          <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=900&q=80">
+          <div class="plant-info">
+            <h4>Monstera</h4>
+            <p>Bold tropical leaves for statement spaces.</p>
+          </div>
+        </article>
+
+        <article class="plant-card" data-category="easy">
+          <img src="https://images.unsplash.com/photo-1459156212016-c812468e2115?auto=format&fit=crop&w=900&q=80">
+          <div class="plant-info">
+            <h4>Succulent Mix</h4>
+            <p>Tiny, beautiful plants that thrive with little care.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <div class="container contact-card">
+        <h3>Visit GreenNest Nursery</h3>
+        <p>Open daily, 9:00 AM - 7:00 PM</p>
+        <p>12 Garden Lane, City Center</p>
+        <button id="helloBtn" class="btn">Say Hello</button>
+        <p id="helloMsg" class="hello-msg" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+<script>
+const filterButtons = document.querySelectorAll(".filter-btn");
+const plantCards = document.querySelectorAll(".plant-card");
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    filterButtons.forEach((btn) => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    const filter = button.dataset.filter;
+
+    plantCards.forEach((card) => {
+      if (filter === "all" || card.dataset.category.includes(filter)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+});
+
+const helloBtn = document.getElementById("helloBtn");
+const helloMsg = document.getElementById("helloMsg");
+
+helloBtn.addEventListener("click", () => {
+  helloMsg.textContent = "Thanks for visiting GreenNest. See you soon!";
+});
+</script>
+
+</body>
+</html>
